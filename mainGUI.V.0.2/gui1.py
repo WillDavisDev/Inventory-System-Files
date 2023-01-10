@@ -4,7 +4,7 @@
 
 
 from pathlib import Path
-
+from QREnc import encode
 # from tkinter import *
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
@@ -59,7 +59,7 @@ button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_1 clicked"),
+    command=lambda: encode(entry_2.get()),
     relief="flat"
 )
 button_1.place(
