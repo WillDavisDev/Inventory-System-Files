@@ -4,7 +4,7 @@
 
 
 from pathlib import Path
-from  import *
+from src.computerIntakeScript import *
 
 # from tkinter import *
 # Explicit imports to satisfy Flake8
