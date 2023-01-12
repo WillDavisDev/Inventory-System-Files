@@ -33,15 +33,25 @@ def CreatesQRMain(ComputerName, Username, SerialNumber, ModelInfo):
     newComp = [ComputerName, Username, SerialNumber, ModelInfo]
 
     #Opens and edits CSV file
-    with open(DATA_PATH / "Inventory.csv", "r+") as f_object:
+    #with open(DATA_PATH / "Inventory.csv", "w") as f_object:
 
-        writer_object = writer(f_object)
+    #    writer_object = writer(f_object)
 
-        writer_object.writerow(newComp)
+    #    f_object.write(newComp)
 
-        f_object.close()
+    #    f_object.close()
 
     
     return -1
+
+def IntializeInventoryCSV():
+    OUTPUT_PATH = Path(__file__).parent
+    DATA_PATH = OUTPUT_PATH.with_name("Data")
+    
+    df = pd.read_csv(DATA_PATH / "Inventory.csv")
+
+    df.columns = ['ComputerName', 'Username', 'SerialNumber', 'ModelInfo']
+
+    df.to_csv(DATA_PATH / "Inventory2.csv", index=False)
 
 
