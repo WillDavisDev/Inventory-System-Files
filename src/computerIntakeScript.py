@@ -1,6 +1,8 @@
 import qrcode
 import pandas as pd
 from csv import writer
+from pathlib import Path
+
 
 #Creates a QRCode based off of the serial number of a computer 
 #Then saves the file somewhere on the computer
@@ -21,11 +23,17 @@ def encode(qrtext):
 
 #This is the main function that will be called on
 #It basically takes in all of the necessary info and drives the rest of the functions
-def ProcessQRInfo(ComputerName, Username, SerialNumber, ModelInfo):
+def CreatesQRMain(ComputerName, Username, SerialNumber, ModelInfo):
     
+    #Gets File Path
+    OUTPUT_PATH = Path(__file__).parent
+    DATA_PATH = OUTPUT_PATH.with_name("Data")
+
+    #Creates Computer entity
     newComp = [ComputerName, Username, SerialNumber, ModelInfo]
 
-    with open('Data\Inventory.csv') as f_object:
+    #Opens and edits CSV file
+    with open(DATA_PATH / "Inventory.csv", "r+") as f_object:
 
         writer_object = writer(f_object)
 

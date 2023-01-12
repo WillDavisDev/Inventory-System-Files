@@ -1,4 +1,4 @@
-from computerIntakeScript import ProcessQRInfo
+from src.computerIntakeScript import CreatesQRMain
 
 #CN = input("Enter ComputerName: ")
 #UN = input("Enter UserName: ")
@@ -10,7 +10,7 @@ UN = 'dsd0022'
 SN = '141414'
 MI = 'Dell Latitude'
 
-ProcessQRInfo(CN,UN,SN,MI)
+CreatesQRMain(CN,UN,SN,MI)
 
 print("Data Successfully Added!")
 
